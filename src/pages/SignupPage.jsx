@@ -4,7 +4,7 @@ const SignupPage = () => {
   return (
     <div className='flex justify-center items-center h-screen'>
         <div  className='flex justify-center items-center'>
-            <SignupForm></SignupForm>
+            <SignupForm class='motion-translate-y-in-100'></SignupForm>
         </div>
     </div>
   )
