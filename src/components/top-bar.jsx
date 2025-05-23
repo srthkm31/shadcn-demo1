@@ -5,29 +5,28 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@radix-ui/react-dropdown-menu';
-import HamburgerMenu from './Hamburger';
-import { useEffect, useState } from 'react';
+} from "@radix-ui/react-dropdown-menu";
+import HamburgerMenu from "./Hamburger";
+import { useEffect, useState } from "react";
 
 const TopBar = () => {
   // Hamburger menu logic
-  const [visible, setVisible]=useState(false)
-    useEffect(() => {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
     const checkWidth = () => {
       if (window.innerWidth <= 767) {
-        setVisible(true)
+        setVisible(true);
       } else {
-        setVisible(false)
+        setVisible(false);
       }
-    }
-    checkWidth()
-    window.addEventListener('resize', checkWidth)
-
+    };
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
 
     return () => {
-      window.removeEventListener('resize', checkWidth)
-    }
-  }, [])
+      window.removeEventListener("resize", checkWidth);
+    };
+  }, []);
 
   return (
     <div className="flex flex-wrap justify-between items-center px-4 py-3 sticky top-0 z-50 border-b border-white/10 bg-black shadow-[0_4px_30px_rgba(255,255,255,0.1)]">
@@ -40,13 +39,11 @@ const TopBar = () => {
         {/* Hide nav links on small screens */}
         <div className="hidden md:flex gap-6">
           <p className="text-lg font-medium hover:text-orange-400 transition cursor-pointer">
-            <a>Analyse</a>
+            <a href="/analyse">Analyse</a>
           </p>
+
           <p className="text-lg font-medium hover:text-orange-400 transition cursor-pointer">
-            <a>Chatbot</a>
-          </p>
-          <p className="text-lg font-medium hover:text-orange-400 transition cursor-pointer">
-            <a>Basic Terms</a>
+            <a href="/knowthejargon">Know The Jargon</a>
           </p>
         </div>
       </div>
@@ -57,14 +54,12 @@ const TopBar = () => {
         <p className="hidden md:block text-lg font-medium hover:text-orange-400 transition cursor-pointer">
           <a>About</a>
         </p>
-        
-        {visible && (<HamburgerMenu ></HamburgerMenu>)}
-        
-        
+
+        {visible && <HamburgerMenu></HamburgerMenu>}
 
         {/* Menu Dropdown */}
-        <DropdownMenu >
-          <DropdownMenuTrigger >
+        <DropdownMenu>
+          <DropdownMenuTrigger>
             <div className="text-lg font-bold items-center cursor-pointer w-10 h-10 flex justify-center rounded-full bg-white text-black shadow-md hover:scale-105 transition mb-1">
               U
             </div>
@@ -89,8 +84,5 @@ const TopBar = () => {
     </div>
   );
 };
-
-
-
 
 export default TopBar;
