@@ -50,11 +50,6 @@ const TopBar = () => {
 
       {/* Right Section */}
       <div className="flex items-center gap-6 text-white mt-3 md:mt-0">
-        {/* Hide on mobile too */}
-        <p className="hidden md:block text-lg font-medium hover:text-orange-400 transition cursor-pointer">
-          <a>About</a>
-        </p>
-
         {visible && <HamburgerMenu></HamburgerMenu>}
 
         {/* Menu Dropdown */}

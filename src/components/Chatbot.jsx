@@ -19,18 +19,18 @@ const Chatbot = () => {
   };
 
   return (
-    <div className=" w-[750px] h-[850px] mt-0 flex flex-col gap-2 items-center">
+    <div className="w-full h-[850px] mt-0 flex flex-col gap-2 items-center pt-2">
       <button
-        className="bg-green-600 mt-1 p-2 rounded-full w-[250px] hover:opacity-85 cursor-pointer"
+        className="bg-green-600 p-2 rounded-full w-[250px] hover:opacity-85 cursor-pointer"
         onClick={() => {
           navigate("/graphpage");
         }}
       >
         Visualize with graphs
       </button>
-      <div className="border-1 border-orange-600 w-[700px] h-[820px] bg-neutral-900 text-white rounded-2xl shadow-lg shadow-orange-600/50">
+      <div className="border-1  border-orange-600  w-full h-[790px] bg-neutral-900 text-white rounded-2xl shadow-lg shadow-orange-600/50">
         {isClicked && (
-          <div className="flex flex-col gap-3 p-5 h-[730px] overflow-auto  w-[680px] m-2">
+          <div className="flex flex-col gap-3 p-5 h-[730px] overflow-auto  w-full m-2">
             <div className="flex flex-row gap-3 p-2 bg-neutral-700 rounded-lg">
               <div className="text-lg font-bold items-center w-8 h-8 flex justify-center rounded-full bg-white text-black shadow-md mb-1">
                 U
@@ -76,21 +76,21 @@ const Chatbot = () => {
         <div
           className={` ${
             isClicked
-              ? " flex flex-row items-center gap-5 justify-center "
-              : "flex flex-col items-center pt-[350px] gap-3"
+              ? " flex flex-row items-center gap-5 justify-center w-full"
+              : "flex flex-col items-center pt-[350px] gap-3 b-2 w-full "
           }`}
         >
           <p className="font-bold text-2xl">ChatBot</p>
           <div className="flex flex-row gap-2 items-center justify-center">
             <input
-              className="rounded-full pl-5 pr-3 pt-2 pb-2 w-[400px] bg-white/90 text-black font-semibold shadow-sm shadow-white inset-ring-2 inset-ring-blue-500/60"
+              className="rounded-full pl-5 pr-3 pt-1 pb-2 w-full xl:w-[400px] bg-white/90 text-black font-semibold shadow-sm shadow-white inset-ring-2 inset-ring-blue-500/60"
               placeholder="Search Here"
               id="userSearch"
               onChange={(e) => {
                 setInput(e.target.value);
               }}
             />
-            {input && (
+            {input.trim(" ") && (
               <button
                 className="rounded-full bg-black p-2 items-center"
                 onClick={Handler}
